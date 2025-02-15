@@ -12,77 +12,185 @@
 -e file:.
 altair==5.5.0
     # via streamlit
+annotated-types==0.7.0
+    # via pydantic
+anyio==4.8.0
+    # via httpx
+    # via openai
 attrs==25.1.0
     # via jsonschema
     # via referencing
+azure-ai-documentintelligence==1.0.0
+    # via markitdown
+azure-core==1.32.0
+    # via azure-ai-documentintelligence
+    # via azure-identity
+azure-identity==1.20.0
+    # via markitdown
+beautifulsoup4==4.13.3
+    # via markdownify
+    # via markitdown
 blinker==1.9.0
     # via streamlit
 cachetools==5.5.1
     # via streamlit
 certifi==2025.1.31
+    # via httpcore
+    # via httpx
     # via requests
+cffi==1.17.1
+    # via cryptography
 charset-normalizer==3.4.1
+    # via markitdown
+    # via pdfminer-six
     # via requests
 click==8.1.8
     # via streamlit
+cobble==0.1.4
+    # via mammoth
+cryptography==44.0.1
+    # via azure-identity
+    # via msal
+    # via pdfminer-six
+    # via pyjwt
+defusedxml==0.7.1
+    # via youtube-transcript-api
+distro==1.9.0
+    # via openai
+et-xmlfile==2.0.0
+    # via openpyxl
 gitdb==4.0.12
     # via gitpython
 gitpython==3.1.44
     # via streamlit
+h11==0.14.0
+    # via httpcore
+httpcore==1.0.7
+    # via httpx
+httpx==0.28.1
+    # via openai
 idna==3.10
+    # via anyio
+    # via httpx
     # via requests
+isodate==0.7.2
+    # via azure-ai-documentintelligence
 jinja2==3.1.5
     # via altair
     # via pydeck
+jiter==0.8.2
+    # via openai
 jsonschema==4.23.0
     # via altair
 jsonschema-specifications==2024.10.1
     # via jsonschema
+lxml==5.3.1
+    # via python-pptx
+mammoth==1.9.0
+    # via markitdown
 markdown-it-py==3.0.0
     # via rich
+markdownify==0.14.1
+    # via markitdown
+markitdown==0.0.1a4
+    # via auto-scoring-ai
 markupsafe==3.0.2
     # via jinja2
 mdurl==0.1.2
     # via markdown-it-py
+msal==1.31.1
+    # via azure-identity
+    # via msal-extensions
+msal-extensions==1.2.0
+    # via azure-identity
 narwhals==1.26.0
     # via altair
 numpy==2.2.3
+    # via markitdown
     # via pandas
     # via pydeck
     # via streamlit
+olefile==0.47
+    # via markitdown
+openai==1.63.0
+    # via markitdown
+openpyxl==3.1.5
+    # via markitdown
 packaging==24.2
     # via altair
+    # via pytesseract
     # via streamlit
 pandas==2.2.3
+    # via markitdown
     # via streamlit
+pathvalidate==3.2.3
+    # via markitdown
+pdf2image==1.17.0
+    # via auto-scoring-ai
+pdfminer-six==20240706
+    # via markitdown
 pillow==11.1.0
+    # via pdf2image
+    # via pytesseract
+    # via python-pptx
     # via streamlit
+portalocker==2.10.1
+    # via msal-extensions
 protobuf==5.29.3
     # via streamlit
+puremagic==1.28
+    # via markitdown
 pyarrow==19.0.0
     # via streamlit
+pycparser==2.22
+    # via cffi
+pydantic==2.10.6
+    # via openai
+pydantic-core==2.27.2
+    # via pydantic
 pydeck==0.9.1
     # via streamlit
+pydub==0.25.1
+    # via markitdown
 pygments==2.19.1
     # via rich
+pyjwt==2.10.1
+    # via msal
+pytesseract==0.3.13
+    # via auto-scoring-ai
 python-dateutil==2.9.0.post0
     # via pandas
+python-pptx==1.0.2
+    # via markitdown
 pytz==2025.1
     # via pandas
 referencing==0.36.2
     # via jsonschema
     # via jsonschema-specifications
 requests==2.32.3
+    # via azure-core
+    # via markitdown
+    # via msal
     # via streamlit
+    # via youtube-transcript-api
 rich==13.9.4
     # via streamlit
 rpds-py==0.22.3
     # via jsonschema
     # via referencing
 six==1.17.0
+    # via azure-core
+    # via markdownify
     # via python-dateutil
 smmap==5.0.2
     # via gitdb
+sniffio==1.3.1
+    # via anyio
+    # via openai
+soupsieve==2.6
+    # via beautifulsoup4
+speechrecognition==3.14.1
+    # via markitdown
 streamlit==1.42.0
     # via auto-scoring-ai
 tenacity==9.0.0
@@ -91,9 +199,21 @@ toml==0.10.2
     # via streamlit
 tornado==6.4.2
     # via streamlit
+tqdm==4.67.1
+    # via openai
 typing-extensions==4.12.2
     # via altair
+    # via anyio
+    # via azure-ai-documentintelligence
+    # via azure-core
+    # via azure-identity
+    # via beautifulsoup4
+    # via openai
+    # via pydantic
+    # via pydantic-core
+    # via python-pptx
     # via referencing
+    # via speechrecognition
     # via streamlit
 tzdata==2025.1
     # via pandas
@@ -101,3 +221,9 @@ urllib3==2.3.0
     # via requests
 watchdog==6.0.0
     # via streamlit
+xlrd==2.0.1
+    # via markitdown
+xlsxwriter==3.2.2
+    # via python-pptx
+youtube-transcript-api==0.6.3
+    # via markitdown
