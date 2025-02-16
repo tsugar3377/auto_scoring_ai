@@ -8,6 +8,7 @@ import json
 from botocore.exceptions import ClientError
 
 def main():
+    st.set_page_config(page_title="Auto Scoring AI")
     st.title("Auto Scoring AI")
 
     # サイドバーに問題文ファイルと模範解答ファイルのアップロードを配置
@@ -17,8 +18,6 @@ def main():
 
     if "contents_idx" not in st.session_state:
         st.session_state["contents_idx"] = 0
-    if "contents_num" not in st.session_state:
-        st.session_state["contents_num"] = 1
 
     form = st.sidebar.container()
     page = st.sidebar.columns(2)
@@ -32,17 +31,16 @@ def main():
             contents = read_file(model_answer_file)
 
         if page[1].button("Next page"):
-            st.session_state.contents_idx = min(st.session_state.contents_num-1, st.session_state.contents_idx + 1)
+            st.session_state.contents_idx = min(len(contents)-1, st.session_state.contents_idx + 1)
         if page[0].button("Previous page"):
             st.session_state.contents_idx = max(0, st.session_state.contents_idx - 1)
+        st.session_state.contents_idx = min(len(contents)-1, st.session_state.contents_idx)
 
         st.write(contents[st.session_state.contents_idx])
 
         with form.form("answer"):
             answer = st.text_area("Your answer")
             submitted = st.form_submit_button()
-
-        st.session_state.contents_num = len(contents)
         
         if submitted:
             with st.spinner("Converting question to text..."):
@@ -51,7 +49,7 @@ def main():
                 model_answer_text = convert_text_to_text(model_answer_file)
             response = auto_scoring(question_text, model_answer_text, answer)
             st.sidebar.header("Score")
-            st.sidebar.write(response)
+            st.sidebar.markdown(response)
 
 
 @st.cache_data
