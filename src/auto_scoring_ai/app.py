@@ -7,42 +7,44 @@ from pdf2image import convert_from_path
 def main():
     st.title("Auto Scoring AI")
 
-    form = st.sidebar.container()
-    page_button = st.sidebar.columns(2)
-
     # サイドバーに問題文ファイルと模範解答ファイルのアップロードを配置
     st.sidebar.header("File Upload")
     question_file = st.sidebar.file_uploader("Upload file of exam questions", type=["pdf"])
-    answer_file = st.sidebar.file_uploader("Upload file of model answer", type=["pdf"])
+    model_answer_file = st.sidebar.file_uploader("Upload file of model answer", type=["pdf"])
 
     if "contents_idx" not in st.session_state:
         st.session_state["contents_idx"] = 0
     if "contents_num" not in st.session_state:
         st.session_state["contents_num"] = 1
-    if page_button[1].button("Next page"):
-        st.session_state.contents_idx = min(st.session_state.contents_num-1, st.session_state.contents_idx + 1)
-    if page_button[0].button("Previous page"):
-        st.session_state.contents_idx = max(0, st.session_state.contents_idx - 1)
 
-    if question_file and answer_file:
+    form = st.sidebar.container()
+    page = st.sidebar.columns(2)
+
+    if question_file and model_answer_file:
         form.header("Answering")
         file_type = form.radio("chose file type", ["question", "answer"])
         if file_type == "question":
             contents = read_file(question_file)
         elif file_type == "answer":
-            contents = read_file(answer_file)
+            contents = read_file(model_answer_file)
 
-        st.session_state.contents_num = len(contents)
-        st.session_state.contents_idx = min(st.session_state.contents_num-1, st.session_state.contents_idx)
+        if page[1].button("Next page"):
+            st.session_state.contents_idx = min(st.session_state.contents_num-1, st.session_state.contents_idx + 1)
+        if page[0].button("Previous page"):
+            st.session_state.contents_idx = max(0, st.session_state.contents_idx - 1)
+
         st.write(contents[st.session_state.contents_idx])
+
         with form.form("answer"):
             answer = st.text_area("Your answer")
             submitted = st.form_submit_button()
+
+        st.session_state.contents_num = len(contents)
         
         if submitted:
             question_text = convert_image_to_text(question_file)
-            answer_text = convert_text_to_text(answer_file)
-            pass
+            model_answer_text = convert_text_to_text(model_answer_file)
+            score = auto_scoring(question_text, model_answer_text, answer)
 
 
 @st.cache_data
@@ -91,6 +93,9 @@ def convert_image_to_text(uploaded_file):
             print(e)
             return None
     return None
+
+def auto_scoring(question, model_answer, answer):
+    pass
 
 if __name__ == "__main__":
     main()
