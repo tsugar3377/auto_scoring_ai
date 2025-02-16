@@ -35,20 +35,18 @@ This application automatically grades user answers based on the provided questio
 1. Start the application:
 
     ```bash
-    streamlit run app.py
+    streamlit run src/auto_scoring_ai/app.py
     ```
 
 2. Your web browser will automatically open and display the application's interface.
 
-3. Input the question text, model answer, and user answer, then click the "Grade" button.
+3. Input the question pdf, model answer pdf, and user answer, then click the "Submit" button.
 
 4. The grading results will be displayed.
 
 ## Directory Structure
 
 - `app.py`: Main application file
-- `templates/`: HTML templates
-- `static/`: Static files (CSS, JavaScript, etc.)
 - `requirements.lock`: List of required libraries
 
 ## License
@@ -62,5 +60,5 @@ Contributions are welcome! If you find any bugs or have feature requests, please
 ## Author
 
 - Name: Your Name
-- GitHub: [yourusername](https://github.com/yourusername)
+- GitHub: [tsugar](https://github.com/yourusername)
 
