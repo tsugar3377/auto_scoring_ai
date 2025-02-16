@@ -59,6 +59,6 @@ Contributions are welcome! If you find any bugs or have feature requests, please
 
 ## Author
 
-- Name: Your Name
+- Name: tsugar3377
 - GitHub: [tsugar3377](https://github.com/tsugar3377)
 
