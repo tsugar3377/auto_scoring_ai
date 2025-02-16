@@ -32,6 +32,11 @@ beautifulsoup4==4.13.3
     # via markitdown
 blinker==1.9.0
     # via streamlit
+boto3==1.36.21
+    # via auto-scoring-ai
+botocore==1.36.21
+    # via boto3
+    # via s3transfer
 cachetools==5.5.1
     # via streamlit
 certifi==2025.1.31
@@ -80,6 +85,9 @@ jinja2==3.1.5
     # via pydeck
 jiter==0.8.2
     # via openai
+jmespath==1.0.1
+    # via boto3
+    # via botocore
 jsonschema==4.23.0
     # via altair
 jsonschema-specifications==2024.10.1
@@ -159,6 +167,7 @@ pyjwt==2.10.1
 pytesseract==0.3.13
     # via auto-scoring-ai
 python-dateutil==2.9.0.post0
+    # via botocore
     # via pandas
 python-pptx==1.0.2
     # via markitdown
@@ -178,6 +187,8 @@ rich==13.9.4
 rpds-py==0.22.3
     # via jsonschema
     # via referencing
+s3transfer==0.11.2
+    # via boto3
 six==1.17.0
     # via azure-core
     # via markdownify
@@ -218,6 +229,7 @@ typing-extensions==4.12.2
 tzdata==2025.1
     # via pandas
 urllib3==2.3.0
+    # via botocore
     # via requests
 watchdog==6.0.0
     # via streamlit
