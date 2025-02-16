@@ -20,7 +20,7 @@ This application automatically grades user answers based on the provided questio
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/auto_scoring_ai.git
+    git clone https://github.com/tsugar3377/auto_scoring_ai.git
     cd auto_scoring_ai
     ```
 
@@ -51,7 +51,7 @@ This application automatically grades user answers based on the provided questio
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE.txt).
 
 ## Contributing
 
@@ -60,5 +60,5 @@ Contributions are welcome! If you find any bugs or have feature requests, please
 ## Author
 
 - Name: Your Name
-- GitHub: [tsugar](https://github.com/yourusername)
+- GitHub: [tsugar3377](https://github.com/tsugar3377)
 
